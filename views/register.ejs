@@ -1,0 +1,56 @@
+<% include ./partials/header %>
+
+<section class="hero is-medium">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Sign Up
+      </h1>
+      <h2 class="subtitle">
+        Please enter your username, password, e-mail and set avatar!
+      </h2>
+    
+      <form action="/register" method="post">
+        <div class="field is-grouped">
+          <p class="control has-icons-left">
+            <input class="input is-medium" type="text" name="username" placeholder="username">
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field is-grouped">
+          <p class="control has-icons-left">
+            <input class="input is-medium" type="password" name="password" placeholder="password">
+            <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field is-grouped">
+          <p class="control has-icons-left">
+            <input class="input is-medium" type="email" name="email" placeholder="email">
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field is-grouped">
+          <p class="control">
+            <input class="input is-medium" type="text" name="avatar" data-action="iconPicker" value="fa fa-icon fa-star"/>
+            <p class="help">Click on icon to open the iconPicker and choose your Avatar!</p>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control">
+            <button class="button is-medium is-link">
+              Sign Up!
+            </button>
+          </p>
+        </div>
+      </form>
+          
+      </div>
+  </div>
+
+<% include ./partials/footer %>

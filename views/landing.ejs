@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>fequest</title>
+        <link rel="stylesheet" href="/styles/main.min.css">
+        <link rel="stylesheet" href="/modules/simple-line-icons/css/simple-line-icons.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#fcdc59">
+        <link rel="shortcut icon" href="/favicon.ico">
+        <!-- Make site responsive on mobile/tablet -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <script>
+        (function notActive(){
+            setTimeout(function(){ 
+                var element = document.getElementById("pageloader");
+                element.classList.remove("is-active");
+            }, 1500);
+        })();
+        </script>
+        
+        <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+        
+    </head>
+    <body>
+        <div id="pageloader" class="pageloader is-link is-active"><span class="title">loading</span></div>
+
+    <section class="hero is-warning is-fullheight">
+     
+    
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h1 class="title">
+            <i class="fas fa-sticky-note"></i>
+                <strong>fequest</strong>
+          </h1>
+          <h2 class="subtitle">
+            this is a great place to ask questions and post about new front-end technologies
+          </h2>
+          <div class="timeline is-centered has-background-dark has-text-white" style="max-width: 800px; margin: 0 auto; padding: 20px 0;">
+                      <header class="timeline-header">
+                            <a href="/questions" class="button is-medium is-link">start asking questions</a>
+                      </header>
+                      <header class="timeline-header">
+                        <span class="tag is-white">or if you're new</span>
+                      </header>
+                      <div class="timeline-item is-warning">
+                        <div class="timeline-marker is-warning has-text-dark is-icon">
+                          <i class="fas fa-question"></i>
+                        </div>
+                        <div class="timeline-content">
+                          <p class="heading">Ask questions</p>
+                          <p>Add some new questions!</p>
+                        </div>
+                      </div>
+                      <div class="timeline-item is-warning">
+                        <div class="timeline-marker is-warning has-text-dark is-icon">
+                          <i class="fas fa-book-open"></i>
+                        </div>
+                        <div class="timeline-content">
+                          <p class="heading">Answer questions</p>
+                          <p>Share your knowledge!</p>
+                        </div>
+                      </div>
+                      <div class="timeline-item is-warning">
+                        <div class="timeline-marker is-warning has-text-dark is-icon">
+                          <i class="far fa-lightbulb"></i>
+                        </div>
+                        <div class="timeline-content">
+                          <p class="heading">Post materials</p>
+                          <p>Post about new technologies</p>
+                        </div>
+                      </div>
+                      <header class="timeline-header">
+                        <a href="/register" class="button is-medium is-link">Sign Up</span></a>
+                      </header>
+                    </div>
+        </div>
+      </div>
+    
+    
+    </section>
+
+    </body>
+  </html>

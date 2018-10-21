@@ -1,0 +1,53 @@
+<% include ../partials/header %>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Create a New Question!
+      </h1>
+      <h2 class="subtitle">
+        Enter your question and hit submit!
+      </h2>
+      <form action="/questions" method="post">
+        <div class="field is-grouped">
+          <p class="control has-icons-left">
+            <input class="input is-medium" type="text" name="name" placeholder="write question">
+            <span class="icon is-small is-left">
+              <i class="fas fa-question"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field is-grouped">
+          <p class="control has-icons-left">
+            <input class="input is-medium" type="text" name="technology" placeholder="technology">
+            <span class="icon is-small is-left">
+              <i class="fas fa-wrench"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control has-icons-left">
+            <input class="input is-medium" type="text" name="image" placeholder="image url">
+            <span class="icon is-small is-left">
+              <i class="fas fa-image"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <textarea class="textarea is-medium" rows="10" name="description" placeholder="describe it"></textarea>
+        </div>
+        <div class="field">
+          <p class="control">
+            <button class="button is-link is-medium">
+              Submit
+            </button>
+          </p>
+        </div>
+      </form>
+          
+      </div>
+  </div>
+      
+<% include ../partials/footer %>

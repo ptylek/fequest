@@ -1,0 +1,48 @@
+<% include ../partials/header %>
+
+<div class="container">
+     <div class="columns">
+        <div class="column is-8">
+            <div class="section">
+                <div class="container">
+                    <div class="columns is-multiline">
+                        <% questions.forEach(function (question) { %>
+                            <div class="column is-half">
+                              <div class="notification">
+                                <div class="field">
+                                  <a href="/questions/<%= question._id %>" class="title question__title"><%= question.name %></a>
+                                </div>
+                                <div class="field">
+                                <img src="<%= question.image %>">
+                                </div>
+                                <div class="field">
+                                <p><%-question.description.substring(0, 140)%>...</p>
+                                </div>
+                                <div class="field">
+                                <a href="/questions/<%= question._id %>" class="button is-warning">Read more</a>
+                                </div>
+                              </div>
+                            </div>
+                        <% }); %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column is-4">
+            <section class="section">
+                <article class="media">
+                    <figure class="media-left">
+                        <i style="font-size: 2em;" class="<%= user.avatar.slice(24) %>"></i>
+                    </figure>
+                    <div class="media-content">
+                        <div class="content">
+                            <h1><%= user.username %></h1>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

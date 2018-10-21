@@ -1,0 +1,138 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="columns">
+        <div class="column is-8">
+            <div class="section">
+                <h1 class="title"><%= question.name %></h1>
+                <img class="image" src="<%= question.image %>">
+                </br>
+                <p><%-question.description%></p>
+                </br>
+                
+                <em>Submitted by: <a href="/users/<%= question.author.id %>"><%= question.author.username %></a>, <%= moment(question.createdAt).fromNow() %></em>
+                </br>
+                <% if(currentUser && question.author.id.equals(currentUser._id)){ %>
+                    <div class="field is-grouped">
+                        <a class="button is-small is-warning" href="/questions/<%=question._id%>/edit">Edit</a>
+                            
+                        <form action="/questions/<%=question._id%>?_method=DELETE" method="POST">
+                            <p class="control">
+                                <button class="button is-small is-danger">Delete</button>
+                            </p>
+                        </form>
+                    </div>
+                <% }; %>
+                
+                 <% if(!currentUser) { %>
+                    <a href="/questions/<%=question._id%>/comments/new" class="button is-link is-medium">Add new comment</a>
+                <% } else { %>
+                    
+                    <form action="/questions/<%=question._id%>/comments" method="POST">
+                    <article class="media">
+                      <figure class="media-left">
+                        <i style="font-size: 2.5em;" class="<%= currentUser.avatar.slice(24) %>"></i>
+                      </figure>
+                      <div class="media-content">
+                        <div class="field">
+                            <p class="control">
+                                <textarea class="textarea is-medium" rows="3" name="comment[text]" placeholder="Write your comment here..."></textarea>
+                            </p>
+                        </div>
+                        <nav class="level">
+                          <div class="level-left">
+                            <div class="level-item">
+                              <button class="button is-link">
+                                    Add new comment
+                                </button>
+                            </div>
+                          </div>
+                        </nav>
+                      </div>
+                    </article>
+                    </form>
+                <% } %>
+                
+                <hr>
+               
+                 <!--Check if there are comments, if there are none say no comments.-->
+                <% if (question.comments.length === 0) { %>
+                     <section class="section">
+                        <p><em style="color: grey;">No comments yet.</em></p>
+                    </section>
+                <% } %>
+                
+                <!--Display comments by looping through them-->
+                <% question.comments.reverse().forEach(function(comment) { %>
+                <article class="media">
+                  <figure class="media-left">
+                    <% if (currentUser && currentUser._id.equals(comment.author.id)) { %>
+                    
+                      <i style="font-size: 3em;" class="has-text-warning <%= comment.author.avatar.slice(24) %>"></i>
+                   
+                    <% } else { %>
+                    
+                      <i style="font-size: 3em;" class="<%= comment.author.avatar.slice(24) %>"></i>
+                    
+                    <% } %>
+                  </figure>
+                  <div class="media-content">
+                    <div class="content">
+                      <p>
+                        <strong><%= comment.author.username %></strong> <small><%= moment(comment.createdAt).fromNow() %></small>
+                        <br>
+                        <%= comment.text %>
+                      </p>
+                    </div>
+                    <nav class="level is-mobile">
+                      <div class="level-left">
+                        <% if (currentUser && currentUser._id.equals(comment.author.id)) { %>
+                        <div class="field is-grouped">
+                            <a class="button is-small is-warning" href="/questions/<%=question._id%>/comments/<%= comment._id%>/edit">Edit</a>
+                        </div>
+                         
+                      </div>
+                    </nav>
+                  </div>
+                  <div class="media-right">
+                    <form id="delete-form" action="/questions/<%= question._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                        <button class="delete has-background-danger"></button>
+                    </form>
+                    <% } %>
+                 </div>
+                </article>
+                <% }) %>
+
+        
+        
+            </div>
+        </div>  
+      
+        <div class="column is-4">
+            <div class="section">
+                <h4 class="title">Category:</h4>
+                <h2 class="subtitle"><%= question.technology%></h2>
+                </br>
+                <h4 class="title">Author:</h4>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <p class="title is-3"><a href="/users/<%= question.author.id %>"><%= question.author.username %></a></p>
+                            </div>
+                            <div class="media-content">
+                                
+                                <i style="font-size: 2em;" class="<%= question.author.avatar.slice(24) %>"></i>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <a href="mailto:<%= question.author.email %>">Send Mail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>          
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

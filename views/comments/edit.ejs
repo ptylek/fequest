@@ -1,0 +1,27 @@
+<% include ../partials/header %>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Edit Comment!
+      </h1>
+      <h2 class="subtitle">
+        Edit your comment and click Submit!
+      </h2>
+      <form action="/questions/<%=question_id%>/comments/<%=comment._id%>?_method=PUT" method="post">
+        <div class="field is-grouped">
+            <textarea class="textarea is-medium" rows="10" name="comment[text]"><%=comment.text%></textarea>
+        </div>
+        <div class="field">
+          <p class="control">
+            <button class="button is-link is-medium">
+              Submit
+            </button>
+          </p>
+        </div>
+      </form>
+      </div>
+  </div>
+      
+<% include ../partials/footer %>

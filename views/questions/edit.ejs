@@ -1,0 +1,52 @@
+<% include ../partials/header %>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Edit <%= question.name %>
+      </h1>
+      <h2 class="subtitle">
+        
+      </h2>
+      <form action="/questions/<%= question._id %>?_method=PUT" method="post">
+        <div class="field is-grouped">
+          <p class="control has-icons-left">
+            <input class="input is-medium" type="text" name="question[name]" value="<%=question.name%>">
+            <span class="icon is-small is-left">
+              <i class="fas fa-question"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field is-grouped">
+          <p class="control has-icons-left">
+            <input class="input is-medium" type="text" name="question[technology]" value="<%=question.technology%>">
+            <span class="icon is-small is-left">
+              <i class="fas fa-wrench"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control has-icons-left">
+            <input class="input is-medium" type="text" name="question[image]" value="<%=question.image%>">
+            <span class="icon is-small is-left">
+              <i class="fas fa-image"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <textarea class="textarea is-medium" rows="10" name="question[description]"><%=question.description%></textarea>
+        </div>
+        <div class="field">
+          <p class="control">
+            <button class="button is-medium is-link">
+              Edit
+            </button>
+          </p>
+        </div>
+      </form>
+          
+      </div>
+  </div>
+      
+<% include ../partials/footer %>

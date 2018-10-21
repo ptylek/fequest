@@ -1,0 +1,19 @@
+@charset "utf-8";
+@import "node_modules/bulma/bulma.sass";
+@import "node_modules/bulma-iconpicker/dist/css/bulma-iconpicker.sass";
+@import "node_modules/bulma-timeline/dist/css/bulma-timeline.sass";
+@import "node_modules/bulma-pageloader/dist/css/bulma-pageloader.sass";
+
+.site {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.site__content {
+    flex: 1;
+}
+
+.question__title {
+    text-decoration: underline;
+}

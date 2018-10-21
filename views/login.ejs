@@ -1,0 +1,42 @@
+<% include ./partials/header %>
+
+<section class="hero is-medium">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Login
+      </h1>
+      <h2 class="subtitle">
+        Please enter your username and password
+      </h2>
+    
+      <form action="/login" method="post">
+        <div class="field is-grouped">
+          <p class="control has-icons-left">
+            <input class="input is-medium" type="text" name="username" placeholder="username">
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field is-grouped">
+          <p class="control has-icons-left">
+            <input class="input is-medium" type="password" name="password" placeholder="password">
+            <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control">
+            <button class="button is-medium is-link">
+              Login
+            </button>
+          </p>
+        </div>
+      </form>
+          
+      </div>
+  </div>
+
+<% include ./partials/footer %>

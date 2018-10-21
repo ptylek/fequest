@@ -1,0 +1,49 @@
+<% include ../partials/header %>
+
+
+<section class="hero is-dark">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Welcome to <strong>fequest!</strong>
+      </h1>
+      <h2 class="subtitle">
+        All the front-end materials you needed!
+      </h2>
+      
+      <a class="button is-link is-large" href="/questions/new">Add New Question!</a>
+      
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+        <% questions.reverse().forEach(function(question){ %>
+        <div class="column is-half">
+          <div class="notification">
+            <div class="field">
+              <a href="/questions/<%= question._id %>" class="title question__title"><%= question.name %></a>
+            </div>
+            <div class="field">
+            <img src="<%= question.image %>">
+            </div>
+            <div class="field">
+            <p><%-question.description.substring(0, 140)%>...</p>
+            </div>
+            <div class="field">
+            <a href="/questions/<%= question._id %>" class="button is-warning">Read more</a>
+            </div>
+          </div>
+        </div>
+       <% }); %>
+    </div>
+  </div>
+</section> 
+   
+<% include ../partials/footer %>
+
+
+   

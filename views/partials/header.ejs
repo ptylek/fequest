@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+    <head>
+        <title>fequest</title>
+        <link rel="stylesheet" href="/styles/main.min.css">
+        <link rel="stylesheet" href="/modules/simple-line-icons/css/simple-line-icons.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#fcdc59">
+        <link rel="shortcut icon" href="/favicon.ico">
+        <!-- Make site responsive on mobile/tablet -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body class="site">
+    
+    <!--Navbar-->
+    
+    <nav class="navbar is-fixed-top is-warning" role="navigation" aria-label="main navigation">
+        <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <i class="fas fa-sticky-note"></i>
+                <strong>fequest</strong>
+            </a>
+
+            <a role="button" class="navbar-burger is-active" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+            
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>" href="/questions">Home</a>
+            </div>
+            <div class="navbar-end">
+                <% if(!currentUser){ %>
+                    <a class="navbar-item <%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>" href="/login">Login</a>
+                    <a class="navbar-item <%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>" href="/register">Sign Up</a>
+                  <% } else { %>
+                    <a class="navbar-item" href="/users/<%= currentUser.id %>">
+                       Hello, <%= currentUser.username %>
+                    </a>
+                    <a class="navbar-item" href="/logout">Logout</a>
+                  <% } %>
+            </div>
+        </div>
+        </div>
+    </nav>
+    
+    <!--Notification messages-->
+
+    <% if(error && error.length > 0){ %>
+        <div class="notification is-danger is-overlay has-text-centered" style="margin-bottom: 0;">
+            <%= error %>
+        </div>
+    <% } %>
+    <% if(success && success.length >0){ %>
+        <div class="notification is-link is-overlay has-text-centered" style="margin-bottom: 0;">
+            <%= success %>
+        </div>
+    <% } %>
+    
+    <main class="site__content">
+    
